@@ -1,0 +1,19 @@
+a i {
+    color: white;
+}
+
+a i:hover {
+    color: #3e91f7;
+}
+
+i {
+    color: #3e91f7;
+}
+
+.sidebar-link {
+    width: auto;
+}
+
+.sidebar {
+    width: 20%;
+}
