@@ -20,7 +20,7 @@
     <title>Starter template - Halfmoon</title>
 </head>
 
-<body data-dm-shortcut-enabled="true" data-set-preferred-theme-onload="true">
+<body data-dm-shortcut-enabled="true" data-set-preferred-theme-onload="true" onload="disableInputs()">
   <!-- Page wrapper with .with-sidebar class -->
   <div class="page-wrapper with-sidebar">
     <!-- Sidebar (immediate child of the page wrapper) -->
@@ -58,8 +58,31 @@
       </div>
     </div>
 
-    <!-- Content wrapper -->
-    <div class="content-wrapper">
+    <div class="sticky-alerts"></div>
+      <!-- Content wrapper start -->
+      <div class="content-wrapper">
+        <div class="w-full h-full d-flex align-items-center justify-content-center">
+          <div class="content">
+            <div>
+              <form class="w-400 mw-full" method="post" action="" onsubmit="element.getElementsByClassName('generated').click()">
+                <div class="form-group">
+                  <label for="name_input" class="required">Username</label>
+                  <input type="text" oninput="checkUsernameDelayed(event.target.value)" onfocus="this.value=''" value="hey" class="form-control" id="name_input" required="required">
+                  <button class="btn" onclick="createValidateButton(event, document.getElementById('name_input'), 'changeUsername' ,'name_input')" type="button"><i class="fas fa-edit"></i></button>
+                </div>
+              </form>
+              <form class="w-400 mw-full" method="post" action="" onsubmit="element.getElementsByClassName('generated').click()">
+                <div class="form-group">
+                  <label for="email_input" class="required">Email</label>
+                  <input type="text" onfocus="this.value=''" value="hey" class="form-control" id="email_input" required="required">
+                  <button class="btn" onclick="createValidateButton(event, document.getElementById('email_input'), 'changeEmail' ,'email_input')" type="button"><i class="fas fa-edit"></i></button>
+                </div>
+              </form>
+                </div>
+              </div>
+        </div>
+      </div>
+      <!-- Content wrapper end -->
     </div>
   </div>
 </body>

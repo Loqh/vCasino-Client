@@ -42,12 +42,97 @@ function loginUser(event) {
   });
 }
 
+function checkUsername(name) {
+  if (name) {
+    axios.post('http://localhost:8080/api/user/check/name', {
+    user_name: name
+  }).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+    toastWarningAlert("This username is already taken. Please choose another one or try to add some characters","Cannot change username");
+  });
+  }
+}
+
+function changeUsername(event, name) {
+  event.preventDefault();
+  console.log("cl name change : " + name);
+  axios.post('http://localhost:8080/api/user/update/name', {
+    user_name: name,
+    user_id: localStorage.getItem("userid")
+  }).then(function (response) {
+    toastSuccessAlert("Your username has been changed to " + name,"Account information updated");
+  }).catch(function (error) {
+    console.log(error);
+    toastDangerAlert("There was an error when updating your username","Cannot change email");
+  });
+}
+
+function changeEmail(event, email) {
+  event.preventDefault();
+  console.log("cl email change : " + email);
+  axios.post('http://localhost:8080/api/user/update/email', {
+    user_email: email,
+    user_id: localStorage.getItem("userid")
+  }).then(function (response) {
+    toastSuccessAlert("Your email has been changed to " + email,"Account information updated");
+  }).catch(function (error) {
+    console.log(error);
+    toastDangerAlert("There was an error when updating your email","Cannot change email");
+  });
+}
+
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+  clearTimeout (timer);
+  timer = setTimeout(callback, ms);
+ };
+})();
+
+function checkUsernameDelayed(name) {
+  delay(function(){
+    checkUsername(name)
+  }, 500 );
+};
+
+function disableInputs() {
+  var inputs = document.getElementsByTagName("input");
+
+  for (i = 0; i < inputs.length; i++) {
+    inputs[i].setAttribute("disabled", "disabled");
+}
+}
+
+function createValidateButton(event, gg, gg2, gg3) {
+  event.preventDefault();
+  console.log(gg);
+
+  if (gg.getAttribute("disabled") == "disabled") {
+    gg.removeAttribute("disabled")
+
+  var newItem = document.createElement("button");
+  newItem.setAttribute("class", "btn generated");
+  newItem.setAttribute("type", "submit");
+  var newVitem = document.createElement("i");
+  newVitem.setAttribute("class", "fas fa-check");
+  newItem.setAttribute("onclick", gg2+"(event, document.getElementById('"+gg3+"').value),event.target.remove(), disableInputs()")
+  newItem.appendChild(newVitem);
+
+  console.log(event);
+  event.target.parentElement.insertBefore(newItem, event.parentElement)
+  }
+
+}
+
 function toastDangerAlert(content, title) {
   halfmoon.initStickyAlert({
     content: content,
     title: title,
     alertType: "alert-danger",
-    fillType: "filled"
+    fillType: "filled",
+    timeShown: 10000
   });
 }
 
@@ -56,6 +141,16 @@ function toastWarningAlert(content, title) {
     content: content,
     title: title,
     alertType: "alert-secondary",
-    fillType: "filled-dm"
+    fillType: "filled-dm",
+    timeShown: 10000
+  });
+}
+
+function toastSuccessAlert(content, title) {
+  halfmoon.initStickyAlert({
+    content: content,
+    title: title,
+    alertType: "alert-success",
+    fillType: "filled-lm"
   });
 }
