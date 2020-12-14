@@ -1,4 +1,4 @@
- function createUser(event) {
+function createUser(event) {
   event.preventDefault();
 
   if (document.getElementById('name_input').textLength >= 5) {
@@ -9,7 +9,7 @@
           user_email: document.getElementById('email_input').value,
           user_password: document.getElementById('password_input').value
         }).then(function (response) {
-          localStorage.setItem("userid", response.data);
+          //localStorage.setItem("userid", response.data);
           window.location.href = "games.html";
         }).catch(function (error) {
           toastDangerAlert("Server error (username already in use, email in use)", "Cannot create account");
