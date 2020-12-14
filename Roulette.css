@@ -1,0 +1,88 @@
+.Wallet{
+    display: block;
+    width: 800px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .RoulleteContainter{
+    margin: auto;
+    position: relative;
+    width: 800px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  .MidIndicator{
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 100;
+    border-right: solid rgba(255, 255, 255, 0.7) 2px;
+  }
+
+  #RollerContainer{
+    width: calc(88px * 37 * 5);
+    animation-name: Spin;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+  }
+
+  .Red {
+    background-color: #ff5050;
+  }
+
+  .Black {
+    background-color: #404040;
+  }
+
+  .Green {
+    background-color: #00cc66;
+  }
+
+  .Red, .Black, .Green{
+    color: white;
+    display: inline-block;
+    width: 88px;
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+  }
+
+  .RouletteInput{
+    margin: auto;
+    width: 800px;
+  }
+
+  .BetButton{
+    width: 12%;
+  }
+
+  .BetColorBtn{
+    width: 32.95%;
+    color: white;
+  }
+
+  .ColorBet{
+    display: inline-block;
+    text-align: center;
+    width: 32.95%;
+    color: grey;
+  }
+
+  .BetColorBtnRed{background-color: #ff5050;}
+  .BetColorBtnGreen{background-color: #00cc66;}
+  .BetColorBtnBlack{background-color: #404040;}
+
+  .BottomButtons{
+    width: 49.7%;
+  }
+
+  #RouletteTable{
+    width: 800px;
+    height: calc(800px / 14 * 8);
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }

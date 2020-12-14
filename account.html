@@ -21,6 +21,25 @@
 </head>
 
 <body data-dm-shortcut-enabled="true" data-set-preferred-theme-onload="true" onload="disableInputs()">
+
+  <div class="modal" id="modal-1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <a href="#" class="close" role="button" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
+        <h5 class="modal-title">Delete your account</h5>
+        <p>
+          If you delete your account everything associated with it will disappear forever. Our website doesn't provide any way to get your account or any of its informations back.
+        </p>
+        <div class="text-right mt-20"> <!-- text-right = text-align: right, mt-20 = margin-top: 2rem (20px) -->
+          <a href="#" class="btn mr-5" role="button">Cancel</a>
+          <a href="" class="btn btn-danger" role="button">I understand, delete my account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Page wrapper with .with-sidebar class -->
   <div class="page-wrapper with-sidebar">
     <!-- Sidebar (immediate child of the page wrapper) -->
@@ -66,18 +85,26 @@
             <div>
               <form class="w-400 mw-full" method="post" action="" onsubmit="element.getElementsByClassName('generated').click()">
                 <div class="form-group">
-                  <label for="name_input" class="required">Username</label>
+                  <label for="name_input" class="required">Change my username</label>
                   <input type="text" oninput="checkUsernameDelayed(event.target.value)" onfocus="this.value=''" value="hey" class="form-control" id="name_input" required="required">
                   <button class="btn" onclick="createValidateButton(event, document.getElementById('name_input'), 'changeUsername' ,'name_input')" type="button"><i class="fas fa-edit"></i></button>
                 </div>
               </form>
               <form class="w-400 mw-full" method="post" action="" onsubmit="element.getElementsByClassName('generated').click()">
                 <div class="form-group">
-                  <label for="email_input" class="required">Email</label>
+                  <label for="email_input" class="required">Change my email address</label>
                   <input type="text" onfocus="this.value=''" value="hey" class="form-control" id="email_input" required="required">
                   <button class="btn" onclick="createValidateButton(event, document.getElementById('email_input'), 'changeEmail' ,'email_input')" type="button"><i class="fas fa-edit"></i></button>
                 </div>
               </form>
+              <form class="w-400 mw-full" method="post" action="" onsubmit="element.getElementsByClassName('generated').click()">
+                <div class="form-group">
+                  <label for="password_input" class="required">Change my password</label>
+                  <input type="text" onfocus="this.value=''" value="password" class="form-control" id="password_input" required="required">
+                  <button class="btn" onclick="createValidateButton(event, document.getElementById('password_input'), 'changePassword' ,'password_input')" type="button"><i class="fas fa-edit"></i></button>
+                </div>
+              </form>
+              <a href="#modal-1" class="btn btn-danger" role="button">Delete my account</a>
                 </div>
               </div>
         </div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./Roulette.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" async></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <link href="./halfmoon/css/halfmoon-variables.min.css" rel="stylesheet" />
+     <script src="./halfmoon/js/halfmoon.js"></script>
+
+
+  </head>
+  <body>
+    <div class="sticky-alerts"></div>
+    <button onclick="spinTest()">AJAJAAJAJAJAJJAAJJAJAJ</button>
+    <h1 class="Wallet mb-5 mt-3"></h1>
+    <div class="RoulleteContainter">
+      <div class="MidIndicator"></div>
+      <div id="RollerContainer">
+      </div>
+    </div>
+
+    <div class="RouletteInput">
+      <input class="BetInput form-control mt-4" onkeyup="BetInput('input')" placeholder="$$$">
+      <div class="BetButtons my-2">
+        <button onclick="BetInput('clear')" class="BetButton btn">Clear</button>
+        <button onclick="BetInput('1')" class="BetButton btn">+1</button>
+        <button onclick="BetInput('10')" class="BetButton btn">+10</button>
+        <button onclick="BetInput('100')" class="BetButton btn">+100</button>
+        <button onclick="BetInput('1000')" class="BetButton btn">+1000</button>
+        <button onclick="BetInput('1/2')" class="BetButton btn">1/2</button>
+        <button onclick="BetInput('x2')" class="BetButton btn">x2</button>
+        <button onclick="BetInput('ai')" class="BetButton btn">ALL IN</button>
+      </div>
+
+      <div class="BetColor col-12 p-0 mb-2">
+        <button class="BetColorBtn BetColorBtnRed btn" data-color="Red">Red</button>
+        <button class="BetColorBtn BetColorBtnGreen btn" data-color="Green">Green</button>
+        <button class="BetColorBtn BetColorBtnBlack btn" data-color="Black">Black</button>
+
+        <span class="ColorBet RedBet py-2">0</span>
+        <span class="ColorBet GreenBet py-2">0</span>
+        <span class="ColorBet BlackBet py-2">0</span>
+      </div>
+      <button class="BottomButtons btn" onclick="cLearBets()">Clear Bets</button>
+      <button class="BottomButtons btn" onclick="SpinRoulette()">SPIN!</button>
+    </div>
+
+    <script src="Roulette.js"></script>
+    <script>
+        console.log(localStorage.getItem("userid"));
+    </script>
+  </body>
+</html>

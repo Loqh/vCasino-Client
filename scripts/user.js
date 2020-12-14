@@ -83,6 +83,20 @@ function changeEmail(event, email) {
   });
 }
 
+function changePassword(event, password) {
+  event.preventDefault();
+  console.log("cl email change : " + password);
+  axios.post('http://localhost:8080/api/user/update/password', {
+    user_password: password,
+    user_id: localStorage.getItem("userid")
+  }).then(function (response) {
+    toastSuccessAlert("Your password has been changed","Account information updated");
+  }).catch(function (error) {
+    console.log(error);
+    toastDangerAlert("There was an error when updating your password","Cannot change password");
+  });
+}
+
 var delay = (function(){
   var timer = 0;
   return function(callback, ms){
